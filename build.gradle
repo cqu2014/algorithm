@@ -26,6 +26,7 @@ dependencies {
 		exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
 	}
     compile group: 'com.google.guava', name: 'guava', version: '30.0-jre'
+    compile 'cn.hutool:hutool-all:5.4.7'
 }
 
 test {

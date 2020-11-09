@@ -1,6 +1,8 @@
-package com.oliver.algorithm.pattern.observer;
+package com.oliver.algorithm.jdkobserver;
 
+import cn.hutool.core.lang.Console;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 
 import java.util.Observable;
 import java.util.Observer;
@@ -13,19 +15,23 @@ import java.util.Observer;
  * @since 
  */
 @Data
+@EqualsAndHashCode(callSuper = false)
 public class Consumer implements Observer {
     private int number;
+    private String name;
 
     public Consumer(int number){
         this.number = number;
+        name = String.valueOf(System.nanoTime());
     }
 
     @Override
     public void update(Observable o, Object arg) {
         NumberModel numberModel = (NumberModel) arg;
         if (numberModel.getNumber() != number){
-            System.out.println("号码不匹配，继续排队中。。。。。。");
+            Console.log("{}号码不匹配，继续排队中。。。。。。",number);
+            return;
         }
-        System.out.println("排到我们了，前往" + numberModel.getDeskType() + "用餐");
+        Console.log("排到我们-{}-了，前往 {} 用餐",number,numberModel.getDeskType());
     }
 }

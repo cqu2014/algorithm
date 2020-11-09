@@ -1,6 +1,8 @@
-package com.oliver.algorithm.pattern.observer;
+package com.oliver.algorithm.jdkobserver;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 /**
  * @author Oliver Wang
@@ -10,6 +12,8 @@ import lombok.Data;
  * @since 
  */
 @Data
+@AllArgsConstructor
+@NoArgsConstructor
 public class NumberModel {
     private int number;
     private String deskType;
