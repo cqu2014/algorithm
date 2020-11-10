@@ -4,6 +4,7 @@ import cn.hutool.core.lang.Console;
 import com.google.common.eventbus.AllowConcurrentEvents;
 import com.google.common.eventbus.Subscribe;
 import com.oliver.algorithm.jdkobserver.NumberModel;
+import lombok.NoArgsConstructor;
 
 /**
  * @author Oliver Wang
@@ -12,6 +13,7 @@ import com.oliver.algorithm.jdkobserver.NumberModel;
  * @date Create at 2020/11/9
  * @since
  */
+@NoArgsConstructor
 public class Consumer {
     private int number;
     private String name;

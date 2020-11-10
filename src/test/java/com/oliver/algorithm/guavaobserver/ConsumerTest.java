@@ -2,9 +2,20 @@ package com.oliver.algorithm.guavaobserver;
 
 import com.google.common.eventbus.EventBus;
 import com.oliver.algorithm.jdkobserver.NumberModel;
+import org.junit.Before;
 import org.junit.jupiter.api.Test;
+import org.junit.runner.RunWith;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.junit4.SpringRunner;
 
+@RunWith(SpringRunner.class)
+@SpringBootTest(classes = {GuavaEventBusTest.class})
 class GuavaEventBusTest {
+
+    @Before
+    public void init() {
+        System.out.println("执行初始化");
+    }
 
     @Test
     public void callNumberModel(){
