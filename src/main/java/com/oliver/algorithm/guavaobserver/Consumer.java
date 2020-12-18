@@ -23,6 +23,10 @@ public class Consumer {
         name = String.valueOf(System.nanoTime());
     }
 
+    /**
+     *  TODO 另外一个项目有更详细的讲解包括 AsyncEventBus
+     * @param numberModel
+     */
     @Subscribe
     @AllowConcurrentEvents
     public void update(NumberModel numberModel){
