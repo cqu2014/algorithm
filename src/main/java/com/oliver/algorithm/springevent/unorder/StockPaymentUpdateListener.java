@@ -5,7 +5,10 @@ import cn.hutool.json.JSONUtil;
 import com.oliver.algorithm.springevent.PaymentInfo;
 import com.oliver.algorithm.springevent.event.PaymentUpdateEvent;
 import org.springframework.context.ApplicationListener;
+import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Component;
+
+import java.time.Instant;
 
 /**
  * @author Oliver Wang
@@ -16,9 +19,13 @@ import org.springframework.stereotype.Component;
  */
 @Component
 public class StockPaymentUpdateListener implements ApplicationListener<PaymentUpdateEvent> {
+
+    @Async
     @Override
     public void onApplicationEvent(PaymentUpdateEvent event) {
-        Console.log("库存服务监听到库存变化：event={}，线程={}", JSONUtil.toJsonStr(event.getSource()),
+        Console.log("{}--库存服务监听到库存变化：event={}，线程={}",
+                Instant.now(),
+                JSONUtil.toJsonStr(event.getSource()),
                 Thread.currentThread().getName());
         ((PaymentInfo)event.getSource()).setId(123456);
     }

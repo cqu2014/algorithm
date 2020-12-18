@@ -1,7 +1,6 @@
 package com.oliver.algorithm.config;
 
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
 import org.springframework.context.event.SimpleApplicationEventMulticaster;
 
 import java.util.concurrent.Executors;
@@ -13,7 +12,7 @@ import java.util.concurrent.Executors;
  * @date Create at 2020/12/18
  * @since
  */
-@Configuration
+// @Configuration
 public class SpringEventConfig {
 
     /**

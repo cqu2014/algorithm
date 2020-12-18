@@ -8,6 +8,7 @@ import org.springframework.context.ApplicationEvent;
 import org.springframework.context.event.SmartApplicationListener;
 import org.springframework.stereotype.Component;
 
+import java.time.Instant;
 import java.util.concurrent.TimeUnit;
 
 /**
@@ -36,7 +37,8 @@ public class SmsPaymentUpdateListener implements SmartApplicationListener {
 
     @Override
     public void onApplicationEvent(ApplicationEvent event) {
-        Console.log("短信服务, 收到支付状态更新的通知. event = {},线程={}",
+        Console.log("{}--短信服务, 收到支付状态更新的通知. event = {},线程={}",
+                Instant.now(),
                 JSONUtil.toJsonStr(event.getSource()),Thread.currentThread().getName());
         ((PaymentInfo)event.getSource()).setId(999999);
 
